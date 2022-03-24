@@ -30,28 +30,18 @@ int main () {
     unsigned int num_arr[arr_length];
 
     if (is_neg) {
-        for (int i = 1; i < arr_length; i++) {
+        for (int i = 0; i < arr_length; i++) {
             num_arr[i] = 0xFF;
         } 
-    }
-    else if (upper_value > lower_value)
-    {
-        num_arr[i] = upper_value;
-        upper_value--;
+    } else {
+        for (int i = 0; i < arr_length-1; i++) {
+            num_arr[i] = upper_value - 1;
+            upper_value--;
+        }
+        arr_length--;
     }
 
-    for (int i = 1; i < arr_length; i++) {
-        if (is_neg) {
-            std::cout << "0xFF added" << std::endl;
-            num_arr[i] = 0xFF;
-        }
-        else if (upper_value > lower_value) {
-            --upper_value;
-            num_arr[i] = upper_value;
-        }
-    }
-
-    for(int i = 1; i < arr_length; i++) {
+    for(int i = 0; i < arr_length; i++) {
         std::cout << num_arr[i] << " ";
     }
 
