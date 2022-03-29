@@ -1,5 +1,6 @@
 /*
 ================================================================================================================
+
 Kristen is a contender for valedictorian of her high school. She wants to know how many students (if any) have
 scored higher than her in the exams given during this semester.
 Create a class named with the following specifications:
@@ -8,6 +9,7 @@ Create a class named with the following specifications:
 •An int calculateTotalScore() function that returns the sum of the student's scores.
 
 Reference: https://www.hackerrank.com/contests/code-cpp-september-2015/challenges/classes-objects
+
 ================================================================================================================
 */
 
@@ -60,8 +62,6 @@ int main() {
             count++;
         }
     }
-
-    
 
     // Print result
     cout << "Number of students with higher score than Kristen: " << count << endl;
