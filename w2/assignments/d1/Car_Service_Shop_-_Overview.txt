@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-03-29T15:06:39+02:00
+
+====== Car Service Shop - Overview ======
+
+**Problem description**
+A car service shop needs to keep track of the records of services they provide to their customer. Create a system
+for them so they could keep ATLEAST the below records:
+
+	* Date the customer visited
+	* Services performed (at least 2 different services)
+	* Parts changed (at least 2 different parts)
+	* Payment (method & amount)
+
+
+BASE CLASS
+[[CarServiceRecord]]
+	- Date & Time visited
+	- Service
+	- Payment
+
+SUBCLASSES
+
+
