@@ -4,11 +4,11 @@
 
 Storage Classes
 ---------------
-* auto
-* register
-* extern
-* static
-* mutable
+auto
+register
+extern
+static
+mutable
 
 typedef
 
@@ -38,10 +38,10 @@ dynamic memory
 new / delete
 stack
 heap
-static memory
 automatic memory
+static memory
 
-struckt
+struct
 
 union
 
@@ -67,7 +67,7 @@ virtual function
 pure virtual function
 abstract class
 open recursion
-this
+this->
 dynamic dispatch
 message passing
 enum class
