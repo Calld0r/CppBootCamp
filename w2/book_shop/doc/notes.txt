@@ -1,0 +1,46 @@
+Code notes
+==========
+
+list of books
+    - title
+    - author
+    - publisher
+    - price
+    - stock position
+
+input
+    - title
+    - author
+
+output
+    - book availability
+    - yes: display book details and, request for number of copies
+        - number copies available
+            - yes: total cost 
+            - no: “Required copies not in stock”
+    - no: message
+
+==================================
+
+Class books
+    Properties
+        - author
+        - title
+        - price
+        - publisher
+        - stock position
+    constructor
+        - add propertie parameters to initialize class object
+        - use 'new' to allocate memory
+    destructor
+        - use 'delete' to delete allocated memory
+    private functions
+        - getters
+    public functions
+        - setters
+
+
+1. Create database (struct?) of books to initialize the books class
+2. Constructor: use 'new' to allocate memory.
+   Initialize class with parameters
+3. Destructor: use 'delete' to erase allocated memory?

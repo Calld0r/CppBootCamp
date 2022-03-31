@@ -1,0 +1,79 @@
+#include
+
+#define
+
+Storage Classes
+---------------
+* auto
+* register
+* extern
+* static
+* mutable
+
+typedef
+
+const
+
+arrays
+
+strings
+
+Flow Control
+------------
+if
+else
+switch
+while
+do while
+for
+break
+continue
+
+pointers
+
+Memory
+------
+memory leakage
+dynamic memory
+new / delete
+stack
+heap
+static memory
+automatic memory
+
+struckt
+
+union
+
+enum
+
+Object Oriented Programming
+---------------------------
+classes
+constructor
+destructor
+encapsulation
+abstraction
+private
+public
+protected
+inheritance
+friendship
+diamond
+virtual
+polymorphisim
+function overloading
+virtual function
+pure virtual function
+abstract class
+open recursion
+this
+dynamic dispatch
+message passing
+enum class
+static
+final
+override
+virtual
+abstract
+virtual destructor

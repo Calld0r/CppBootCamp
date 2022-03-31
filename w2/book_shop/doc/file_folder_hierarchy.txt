@@ -1,0 +1,28 @@
+Links
+-----
+https://google.github.io/styleguide/cppguide.html
+
+
+
+
+Hierarchy
+---------
+PROJECT/
+├── bin/            <- compiled binaries. 
+├── data/ 
+│   ├── raw/
+│   └── clean/
+│
+├── figures/        <- figures used in place of a "results" folder. 
+├── scripts/
+│   ├── process/    <- scripts to maniuplate data between raw, cleaned, final stages.
+│   └── plot/	      <- intermediate plotting.
+│
+├── src
+│   ├── model1/     <- various experimental models.
+│   ├── model2/
+│   └── model3/
+│
+├── LICENSE
+├── Makefile
+└── readme.md
