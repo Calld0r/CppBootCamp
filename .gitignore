@@ -32,4 +32,6 @@
 *.app
 
 # VScode
-.vscode
+launch.json
+settings.json
+task.json
