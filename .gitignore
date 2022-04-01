@@ -32,5 +32,4 @@
 *.app
 
 # VScode
-settings.json
-tasks.json
+.vscode
