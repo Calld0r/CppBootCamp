@@ -15,7 +15,7 @@ considered. Only, and if only both area and perimeter are equal then the objects
 using namespace std;
 
 class Shape {
-    // ATTRIBUTES
+    // ATTRIBUTES6
     public:
         int width{}, height{}, radius{}, area{};
     // METHODS
@@ -28,7 +28,6 @@ class Shape {
         Shape(int _width, int _height) { this->width = _width; this->height = _height; };
         ~Shape() { cout << "Im Dead!" << endl; };
         virtual void CalcArea() = 0;
-    private:
 };
 
 class Rectangle : public Shape {
@@ -36,6 +35,14 @@ class Rectangle : public Shape {
     public:
         Rectangle() = default;
         Rectangle(int _width, int _height) { this->width = _width; this->height = _height; cout << "A Rectangle was born" << endl; };
+        void CalcArea() { this->area = this->width * this->height; };
+};
+
+class Square : public Rectangle {
+    // METHODS
+    public:
+        Square() = default;
+        Square(int _width, int _height) { this->width = _width; this->height = _height; cout << "A Square was born" << endl; };
         void CalcArea() { this->area = this->width * this->height; };
 };
 
@@ -50,11 +57,15 @@ class Circle : public Shape {
 int main () {
     Rectangle r(10,10);
     Circle c(5);
+    Square s(5,5);
     cout << r.area << endl;
     r.CalcArea();
     cout << r.area << endl;
     cout << c.area << endl;
     c.CalcArea();
     cout << c.area << endl;
+    cout << s.area << endl;
+    s.CalcArea();
+    cout << s.area << endl;
     return 0;
 }
