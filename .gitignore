@@ -37,4 +37,4 @@ settings.json
 tasks.json
 
 # Other
-.pdf
+*.pdf
