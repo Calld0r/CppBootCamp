@@ -19,21 +19,23 @@ class Shape {
     public:
         // Methods
         void InitObj() { this->CalcArea(); this->CalcPerimeter(); }
+        string GetName() { return this->name; }
         int GetArea() { return this->CalcArea(); }
         int GetPerimeter() { return this->CalcPerimeter(); }
         void SetWidth(int _width) { this->width = _width; }
         void SetHeight(int _height) { this->height = _height; }
         void SetRadius(int _radius) { this->radius = _radius; }
-        bool operator == (Shape& _shape) { if ( this->area == _shape.area) { return true; } return false; }
+        bool operator == (Shape& _shape) { if ( this->area == _shape.area /*&& this->perimeter == _shape.perimeter*/) { return true; } return false; }
         bool operator != (Shape& _shape) { if ( this->area != _shape.area) { return true; } return false; }
         bool operator > (Shape& _shape) { if ( this->area > _shape.area) { return true; } return false; }
     protected:
         // Attributes
+        string name;
         int width{}, height{}, radius{}, sideA{}, sideB{}, sideC{}, area{}, perimeter{};
         // Methods
-        Shape(int _radius) { this->radius = _radius; }
-        Shape(int _width, int _height) { this->width = _width; this->height = _height; }
-        Shape(int _sideA, int _sideB, int _sideC) { this->sideA = _sideA; this->sideB = _sideB; this->sideC = _sideC; }
+        Shape(string _name, int _radius) { this->name = _name, this->radius = _radius; }
+        Shape(string _name, int _width, int _height) { this->name = _name, this->width = _width; this->height = _height; }
+        Shape(string _name, int _sideA, int _sideB, int _sideC) { this->name = _name, this->sideA = _sideA; this->sideB = _sideB; this->sideC = _sideC; }
         virtual int CalcArea() = 0;
         virtual int CalcPerimeter() = 0;
 };
@@ -45,7 +47,7 @@ class Rectangle : public Shape {
         int CalcArea() { this->area = this->width * this->height; return this->area; }
     public:
         // Methods
-        Rectangle(int _width, int _height) : Shape(_width, _height) {}
+        Rectangle(string _name, int _width, int _height) : Shape(_name, _width, _height) {}
 };
 
 class Square : public Shape {
@@ -55,7 +57,7 @@ class Square : public Shape {
         int CalcPerimeter() { this->perimeter = this->width * 2 + this->height * 2; return this->perimeter; }
     public:
         // Methods
-        Square(int _width, int _height) : Shape(_width, _height) {}
+        Square(string _name, int _width, int _height) : Shape(_name, _width, _height) {}
 };
 
 class Circle : public Shape {
@@ -65,7 +67,7 @@ class Circle : public Shape {
         int CalcPerimeter() { this->perimeter = PI * 2 * this->radius; return this->perimeter; }
     public:
         // Methods
-        Circle(int _radius) : Shape(_radius) {}
+        Circle(string _name, int _radius) : Shape(_name, _radius) {}
 };
 
 class Triangle : public Shape {
@@ -79,70 +81,42 @@ class Triangle : public Shape {
         int CalcPerimeter() { this->perimeter = ( this->sideA + this->sideC + this->sideC ) / 2; return this->perimeter; }
     public:
         // Methods
-        Triangle(int _sideA, int _sideB, int _sideC) : Shape(_sideA, _sideB, _sideC) {}
+        Triangle(string _name, int _sideA, int _sideB, int _sideC) : Shape(_name, _sideA, _sideB, _sideC) {}
 };
 
 int main () {
-    Square s1(8,8);
-    s1.InitObj();
+    Shape* base[8];
+    int size = sizeof(base)/sizeof(base[0]);
+    
+    //          Create                Initialize    Assign to array
+    Square      s1("Square 1",2,3);     s1.InitObj(); base[0] = &s1;
+    Rectangle   r1("Rectangle 1",3,2);  r1.InitObj(); base[1] = &r1;
+    Circle      c1("Circle 1",12);      c1.InitObj(); base[2] = &c1;
+    Triangle    t1("Triangle 1",3,5,4); t1.InitObj(); base[3] = &t1;
+    Square      s2("Square 2",2,3);     s2.InitObj(); base[4] = &s2;
+    Rectangle   r2("Rectangle 2",8,2);  r2.InitObj(); base[5] = &r2;
+    Circle      c2("Circle 2",12);      c2.InitObj(); base[6] = &c2;
+    Triangle    t2("Triangle 2",4,4,4); t2.InitObj(); base[7] = &t2;
 
-    Rectangle r1(8,8);
-    r1.InitObj();
 
-    Circle c1(12);
-    c1.InitObj();
-
-    Triangle t1(3,5,4);
-    t1.InitObj();
-
-    // Compare Square with Rectangle
-    if ( s1 == r1) {
-        cout << "The object area matches!" << endl;
-        if (s1.GetPerimeter() == r1.GetPerimeter()) {
-            cout << "The objects peremiter matches too!" << endl << "The objects are equal!" << endl;
-        };
-    } else { cout << "Square and Rectangle do not match" << endl; }
-
-    // Compare Square with Circle
-    if ( s1 == c1) {
-        cout << "The object area matches!" << endl;
-        if (s1.GetPerimeter() == c1.GetPerimeter()) {
-            cout << "The objects peremiter matches too!" << endl << "The objects are equal!" << endl;
-        };
-    } else { cout << "Square and Circle do not match" << endl; }
-
-    // Compare Square with Triangle
-    if ( s1 == t1) {
-        cout << "The object area matches!" << endl;
-        if (s1.GetPerimeter() == t1.GetPerimeter()) {
-            cout << "The objects peremiter matches too!" << endl << "The objects are equal!" << endl;
-        };
-    } else { cout << "Square and Triangle do not match" << endl; }
-
-    // Compare Rectangle with Circle
-    if ( r1 == c1) {
-        cout << "The object area matches!" << endl;
-        if (r1.GetPerimeter() == c1.GetPerimeter()) {
-            cout << "The objects peremiter matches too!" << endl << "The objects are equal!" << endl;
-        };
-    } else { cout << "Rectangle and Circle do not match" << endl; }
-
-    // Compare Rectangle with Triangle
-    if ( r1 == t1) {
-        cout << "The object area matches!" << endl;
-        if (r1.GetPerimeter() == t1.GetPerimeter()) {
-            cout << "The objects peremiter matches too!" << endl << "The objects are equal!" << endl;
-        };
-    } else { cout << "Rectangle and Triangle do not match" << endl; }
-
-    // Compare Circle with Triangle
-    if ( c1 == t1) {
-        cout << "The object area matches!" << endl;
-        if (c1.GetPerimeter() == t1.GetPerimeter()) {
-            cout << "The objects peremiter matches too!" << endl << "The objects are equal!" << endl;
-        };
-    } else { cout << "Circle and Triangle do not match" << endl; }
-
+    cout << "COMPARE" << endl <<
+            "=======" << endl;
+    for (int i = 0; i < size-1; i++) { 
+        for(int j = size-1; j > i; j--) {
+            if (base[i]->GetName() != base[j]->GetName()) {
+                cout << "----------------------------------------------------------------" << endl; 
+                if (base[i]->operator== (*base[j])) {
+                    cout << ">> MATCH: Area of " << base[i]->GetName() << " matches the area of " << base[j]->GetName() << endl;
+                    if (base[i]->GetPerimeter() == base[j]->GetPerimeter()) {
+                        cout << ">> MATCH: Perimeter of " << base[i]->GetName() << " matches the perimeter of " << base[j]->GetName() << endl;
+                        cout << ">> THE OBJECTS ARE EQUAL" << endl;
+                    }
+                } else { cout << "Area of " << base[i]->GetName() << " does not match the area of " << base[j]->GetName() << endl; }
+                cout << "----------------------------------------------------------------" << endl; 
+                cout << endl;
+            }
+        }
+    }
 
     return 0;
 }
