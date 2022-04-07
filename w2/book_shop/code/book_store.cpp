@@ -188,5 +188,3 @@ int main () {
     }
     return 0;
 }
-
-hejsan!!
