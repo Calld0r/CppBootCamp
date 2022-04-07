@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -57,6 +56,7 @@ void addBook(vector<Book> &book_vector) {
     string title, author, publisher;
     float price{};
     int stock{};
+
     cin.ignore();
     cout << "Enter Author Name: "; getline (cin, author);
     cout << "Enter Title Name: "; getline (cin, title);
@@ -83,24 +83,24 @@ int searchBook (vector<Book> &book_vector) {
 }
 
 void buyBook(vector<Book> &book_vector) {
-    int book_pos{}, req_qty{}, yes_no{};
+    int book_pos{}, req_qty{}, yes{};
     book_pos = searchBook(book_vector);
     int av_stock = book_vector[book_pos].getStock();
+
     if (book_pos != -1) {
         cout << "Enter Number Of Books to buy: "; cin >> req_qty;
         if (req_qty <= av_stock) {
             book_vector[book_pos].setStock(av_stock - req_qty);
             cout << "Books Bought Sucessfully" << endl;
             cout << "Amount: $" << req_qty * book_vector[book_pos].getPrice() << endl;
-
         } else { 
             cout << "Required copies not in stock." << endl;
-            cout << "Purchase Available Stock of " << av_stock
-                 << " instead, Y(1)/N(0) : ";
-            cin >> yes_no;
-            if (yes_no) {
+            cout << "Purchase Available Stock of " << av_stock << " instead, Y(1)/N(0) : ";
+            cin >> yes;
+            if (yes) {
                 book_vector.erase(book_vector.begin() + book_pos);
-                cout << book_vector[book_pos].getTitle() << " By "
+                cout << book_vector[book_pos].getTitle()
+                     << " By "
                      << book_vector[book_pos].getAuthor() 
                      << " Was Removed From the Inventory List" << endl
                      << "Books Bought Sucessfully" << endl
@@ -176,20 +176,17 @@ int main () {
                 break;
             case edit_book:
                 editBook(book_vector);
-                cout << "edit_book" << endl;
                 break;
             case exit:
-                cout << "SAVE AND EXIT" << endl;
-                cout << endl;
+                cout << "SAVE AND EXIT" << endl << endl;
                 loop = false;
                 break;
             default:
-                if (cin.fail()) {
-                    cin.clear();
-                    cin.ignore();
-                }
+                if (cin.fail()) {cin.clear(); cin.ignore();}
                 break;
         }
     }
     return 0;
 }
+
+hejsan!!
