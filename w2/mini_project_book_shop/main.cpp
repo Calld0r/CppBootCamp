@@ -2,49 +2,9 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include "book_store.h"
+#include "include/book.h"
 
 using namespace std;
-
-class Book
-{
-private:
-    // Attributes
-    string title, author, publisher;
-    float price{};
-    int stock{};
-
-public:
-    Book() = default;
-    Book(string _title, string _author, string _publisher, float _price, int _stock)
-    {
-        this->title = _title;
-        this->author = _author;
-        this->publisher = _publisher;
-        this->price = _price;
-        this->stock = _stock;
-    }
-    // Functions
-    void printBook()
-    {
-        cout << "Author Name: " << this->author << endl;
-        cout << "Title Name: " << this->title << endl;
-        cout << "Publisher Name: " << this->publisher << endl;
-        cout << "Price: " << this->price << endl;
-        cout << "Number of Copies: " << this->stock << endl
-             << endl;
-    }
-    void setTitle(string _title) { this->title = _title; }
-    void setAuthor(string _author) { this->author = _author; }
-    void setPublisher(string _publisher) { this->publisher = _publisher; }
-    void setPrice(float _price) { this->price = _price; }
-    void setStock(int _stock) { this->stock = _stock; }
-    string getTitle() { return this->title; }
-    string getAuthor() { return this->author; }
-    string getPublisher() { return this->publisher; }
-    float getPrice() { return this->price; }
-    int getStock() { return this->stock; }
-};
 
 int getElementPos(vector<Book> &book_vector, string _title, string _author)
 {
@@ -189,6 +149,15 @@ int menuPrompt()
     return choice;
 }
 
+enum options
+{
+    new_book = 1,
+    buy_book,
+    search_book,
+    edit_book,
+    quit
+};
+
 int main()
 {
     vector<Book> book_vector;
@@ -199,14 +168,6 @@ int main()
     book_vector.push_back(Book("Fear and Loathing In Las Vegas", "Hunter S. Thompson", " Random House~trade", 5.47, 4));
     book_vector.push_back(Book("One Flew Over the Cuckoo's Nest", "Ken Kesey", " Berkley", 3.68, 6));
 
-    enum options
-    {
-        new_book = 1,
-        buy_book,
-        search_book,
-        edit_book,
-        exit
-    };
     bool loop = true;
     int book_pos{};
 
@@ -235,7 +196,7 @@ int main()
         case edit_book:
             editBook(book_vector);
             break;
-        case exit:
+        case quit:
             cout << "EXIT" << endl
                  << endl;
             loop = false;

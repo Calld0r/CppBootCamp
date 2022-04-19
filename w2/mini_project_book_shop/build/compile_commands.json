@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/build",
+  "command": "/usr/bin/g++   -I/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/include  -g   -std=gnu++14 -o CMakeFiles/book_store.dir/main.cpp.o -c /home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/main.cpp",
+  "file": "/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/main.cpp"
+},
+{
+  "directory": "/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/build",
+  "command": "/usr/bin/g++   -I/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/include  -g   -std=gnu++14 -o CMakeFiles/mylib.dir/src/book.cpp.o -c /home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/src/book.cpp",
+  "file": "/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/src/book.cpp"
+}
+]

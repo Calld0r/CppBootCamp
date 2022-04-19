@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/include/book.h
+
+/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/main.cpp
+iostream
+-
+string
+-
+vector
+-
+fstream
+-
+include/book.h
+/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/include/book.h
+
