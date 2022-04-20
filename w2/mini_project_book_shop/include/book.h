@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 class Book
 {
@@ -24,3 +25,15 @@ public:
     float getPrice();
     int getStock();
 };
+
+int getElementPos(std::vector<Book> &book_vector, std::string _title, std::string _author);
+
+void addBook(std::vector<Book> &book_vector);
+
+int searchBook(std::vector<Book> &book_vector);
+
+void buyBook(std::vector<Book> &book_vector);
+
+void editBook(std::vector<Book> &book_vector);
+
+int menuPrompt();
