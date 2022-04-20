@@ -1,4 +1,0 @@
-/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/build/CMakeFiles/edit_cache.dir
-/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/build/CMakeFiles/rebuild_cache.dir
-/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/build/CMakeFiles/book_store.dir
-/home/chelgegr/Documents/cpp-boot-camp/w2/mini_project_book_shop/build/CMakeFiles/mylib.dir
