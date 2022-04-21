@@ -37,3 +37,5 @@ void buyBook(std::vector<Book> &book_vector);
 void editBook(std::vector<Book> &book_vector);
 
 int menuPrompt();
+
+bool initLibrary(std::vector<Book> &book_vector);

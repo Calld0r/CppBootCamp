@@ -1,5 +1,10 @@
 #include <iostream>
 #include "book.h"
+#include <fstream>
+#include <string>
+#include <vector>
+#include <sstream>
+
 using namespace std;
 
 // Functions
@@ -203,4 +208,30 @@ int menuPrompt()
     cout << endl;
 
     return choice;
+}
+
+bool initLibrary(vector<Book> &book_vector)
+{
+    fstream file("library.csv", ios::in);
+
+    if (file.is_open())
+    {
+        while (file.good())
+        {
+            string line, attributes[5];
+            getline(file, line);
+            stringstream s(line);
+            for (int i = 0; i < 5; i++)
+            {
+                getline(s, attributes[i], ',');
+            }
+            book_vector.push_back(Book(attributes[0], attributes[1], attributes[2], stof(attributes[3]), stoi(attributes[4])));
+        }
+        return true;
+    }
+    else
+    {
+        cout << "Could not open the file" << endl;
+        return false;
+    }
 }
