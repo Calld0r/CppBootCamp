@@ -39,3 +39,5 @@ void editBook(std::vector<Book> &book_vector);
 int menuPrompt();
 
 bool initLibrary(std::vector<Book> &book_vector);
+
+bool saveLibrary(std::vector<Book> &book_vector);

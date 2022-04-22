@@ -212,14 +212,15 @@ int menuPrompt()
 
 bool initLibrary(vector<Book> &book_vector)
 {
-    fstream file("library.csv", ios::in);
+    fstream fin;
+    fin.open("library.csv", ios::in);
 
-    if (file.is_open())
+    if (fin.is_open())
     {
-        while (file.good())
+        while (fin.good())
         {
             string line, attributes[5];
-            getline(file, line);
+            getline(fin, line);
             stringstream s(line);
             for (int i = 0; i < 5; i++)
             {
@@ -228,10 +229,29 @@ bool initLibrary(vector<Book> &book_vector)
             book_vector.push_back(Book(attributes[0], attributes[1], attributes[2], stof(attributes[3]), stoi(attributes[4])));
         }
         return true;
+        fin.close();
     }
     else
     {
-        cout << "Could not open the file" << endl;
+        return false;
+    }
+}
+
+bool saveLibrary(vector<Book> &book_vector)
+{
+    fstream fout;
+    fout.open("library.csv", ios::out);
+    if (fout.is_open())
+    {
+        for (auto itr = book_vector.begin(); itr != book_vector.end(); itr++)
+        {
+            fout << itr->getTitle() << ',' << itr->getAuthor() << ',' << itr->getPublisher() << ',' << itr->getPrice() << ',' << itr->getStock() << endl;
+        }
+        fout.close();
+        return true;
+    }
+    else
+    {
         return false;
     }
 }
